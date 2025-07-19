@@ -1,0 +1,192 @@
+/* Reset dan dasar */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  height: auto;
+  font-family: 'Segoe UI', sans-serif;
+  background: url('https://images.pexels.com/photos/159711/books-bookstore-book-reading-159711.jpeg?_gl=1*1h5ckvf*_ga*MzMwNjQzMzIyLjE3NTI4NDQ5NDg.*_ga_8JE65Q40S6*czE3NTI4NDQ5NDckbzEkZzEkdDE3NTI4NDUxMDMkajE5JGwwJGgw') no-repeat center center fixed;
+  background-size: cover;
+  position: relative;
+  overflow-y: auto;
+}
+
+/* overlay putih transparan */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 0;
+}
+
+/* container dengan efek glassmorphism */
+.container {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: saturate(180%) blur(8px);
+  -webkit-backdrop-filter: saturate(180%) blur(8px);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 420px;
+  padding: 2rem;
+  margin: 2rem auto 4rem;
+  text-align: center;
+  box-sizing: border-box;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+/* judul pakai font kaligrafi */
+.title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 3rem;
+  color: #1565c0;
+  margin-bottom: 0.2rem;
+  user-select: none;
+}
+
+.subtitle {
+  font-size: 1rem;
+  font-style: italic;
+  color: #5c6bc0;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  user-select: none;
+}
+
+/* .icon { 
+  width: 60px;
+  margin: 0 auto 0.5rem auto;
+  display: block;
+}
+*/
+.input-section {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+#taskInput {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border: 1.5px solid #90caf9;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+#taskInput:focus {
+  border-color: #1976d2;
+}
+
+button {
+  padding: 0.5rem 1rem;
+  background-color: #1976d2;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #1565c0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 1.5rem;
+  text-align: left;
+}
+
+li {
+  background: #bbdefb;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.7rem;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+  font-size: 1rem;
+}
+
+li span {
+  cursor: pointer;
+  transition: color 0.3s;
+  user-select: none;
+  margin-left: 10px;
+  font-size: 1.1rem;
+}
+
+li.completed {
+  background: #c8e6c9;
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+li.completed span:last-child {
+  color: #2e7d32;
+}
+
+li:not(.completed) span:last-child {
+  color: #e53935;
+}
+
+li span:last-child {
+  font-size: 1.2rem;
+  border-radius: 50%;
+  padding: 4px 8px;
+  transition: background 0.2s, transform 0.2s;
+  margin-left: 0;
+}
+
+li span:last-child:hover {
+  background: rgba(0,0,0,0.05);
+  transform: scale(1.1);
+}
+
+/* styling icon-button jika ada fitur edit/delete */
+.icon-button {
+  font-size: 1.2rem;
+  padding: 2px 6px;
+  border-radius: 6px;
+  background-color: rgba(0,0,0,0.05);
+  transition: background-color 0.2s, transform 0.2s;
+}
+
+.icon-button:hover {
+  background-color: rgba(0,0,0,0.15);
+  transform: scale(1.15);
+}
+
+li .task-name {
+  flex: 1;
+  text-align: left;
+  cursor: pointer;
+}
+
+li.editing .task-name {
+  display: none;
+}
+
+li.editing input.edit-input {
+  display: inline-block;
+  flex: 1;
+  padding: 4px 8px;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1.5px solid #90caf9;
+  outline: none;
+}
+
+li.editing input.edit-input:focus {
+  border-color: #1976d2;
+}
